@@ -37,9 +37,10 @@ while (true) {
 
 while (true) {
     age = prompt('Введите ваш возраст');
-    if (Number(age) && Number(age) > 0 && Number(age) < 100) {
+    age = Number(age);
+    if (age && age > 0 && age < 100) {
         ageInDays = age * 365;
-        futureAge = Number(age) + 5;
+        futureAge = age + 5;
         break
     } else {
         alert("Возраст введен неверный!");
