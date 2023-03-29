@@ -6,22 +6,18 @@ while (true) {
         alert("Строка не может быть пустая!");
     }
 }
-alert(removeWhitespaces(yourString))
+alert(`%${removeWhitespaces(yourString)}%`) 
 
 function removeWhitespaces(string) {
     let i = 0;
-    let newString = '';
-    do {
-        newString = `#${string.slice(i+1)}`;
+    let j = string.length-1;
+    while (string[i] === " ") {
         i++;
-    } while (string[i] === " ")
-
-    i= newString.length;
-    do {
-        newString = `${newString.slice(0,i)}#`;
-        i--;
-    } while (newString[i] === " ")
-    return newString
+    }
+    while (string[j] === " ") {
+        j--;
+    }
+    return string.slice(i,j+1)
 }
 
 

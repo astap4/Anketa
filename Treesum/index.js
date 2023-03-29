@@ -1,5 +1,6 @@
+"use strict"
 function treeSum(array) {
-    count = 0;
+    let count = 0;
     for (let i = 0; i < array.length; i++) {
         if (Array.isArray(array[i])) {
             count += treeSum(array[i])
