@@ -6,18 +6,26 @@ while (true) {
         alert("Строка не может быть пустая!");
     }
 }
-alert(`%${removeWhitespaces(yourString)}%`) 
+alert(`%${removeWhitespaces(yourString)}%`)
 
 function removeWhitespaces(string) {
     let i = 0;
-    let j = string.length-1;
-    while (string[i] === " ") {
-        i++;
+    let j = string.length - 1;
+    if (string[0] === ' ') {    //Если нет пробела в начале - пропускаем цикл
+        while (string[i] === " ") {
+            i++;
+        }
     }
-    while (string[j] === " ") {
-        j--;
+    if (i === string.length) {   //Если строка состоит только из пробелов - возвращаем пустую строку после первого цикла
+        return '';
+    } else {
+        if (string[j] === ' ') {   //Если нет пробела в конце - пропускаем цикл
+            while (string[j] === " ") {
+                j--;
+            }
+        }
+        return string.slice(i, j + 1)
     }
-    return string.slice(i,j+1)
 }
 
 
