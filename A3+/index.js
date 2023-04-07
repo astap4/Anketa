@@ -9,15 +9,16 @@
 //  - разница между буквами "е" и "ё".
 // Спросить у пользователя строку. Вывести через alert сообщение "это палиндром" или "это не палиндром".
 
-while (true) {
+getString()
+
+function getString() {
     yourString = prompt('Введите строку');
-    if (yourString) {
-        break
+    if (palindrom(yourString)) {
+        alert("Это палиндром")
     } else {
-        alert("Строка не может быть пустая!");
+        alert("Это не палиндром")
     }
 }
-alert(palindrom(yourString))
 
 function palindrom(str) {
     str = str.toLowerCase();
@@ -35,8 +36,8 @@ function palindrom(str) {
     }
     for (let i = 0, j = newStr.length-1; i<newStr.length; i++, j--){
         if (newStr[i] !== newStr[j]){
-            return "Это не палиндром"
+            return false
         } 
     }
-    return "Это палиндром";
+    return true;
 }
