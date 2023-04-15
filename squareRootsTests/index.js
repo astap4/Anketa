@@ -1,39 +1,43 @@
 function squareRoots(a, b, c) {
-    if (a === 0) {             //если а = 0, то уравнение будет линейным
-        if (b === 0) {
-            if (c === 0) {
-                return [Infinity];
+    try {
+        if (a === 0) {             //если а = 0, то уравнение будет линейным
+            if (b === 0) {
+                if (c === 0) {
+                    throw new Error("Бесконечность решений!");
+                } else {
+                    return []; // нет корней
+                }
             } else {
-                return []; // нет корней
+                return [-c / b]; // один корень
             }
         } else {
-            return [-c / b]; // один корень
-        }
-    } else {
-        if (c === 0) {  //неполные квадратные уравнения
-            if (b === 0) {
-                return [0]
-            } else {
-                return [0, -b / a]
+            if (c === 0) {  //неполные квадратные уравнения
+                if (b === 0) {
+                    return [0]
+                } else {
+                    return [0, -b / a]
+                }
             }
+    
+            const d = b * b - 4 * a * c; // дискриминант
+    
+            if (d < 0)
+                return []; // нет корней
+    
+            if (d == 0)
+                return [-b / (2 * a)]; // один корень
+    
+            const x1 = (-b + Math.sqrt(d)) / (2 * a);
+            const x2 = (-b - Math.sqrt(d)) / (2 * a);
+            return [x1, x2]; // два корня
         }
-
-        const d = b * b - 4 * a * c; // дискриминант
-
-        if (d < 0)
-            return []; // нет корней
-
-        if (d == 0)
-            return [-b / (2 * a)]; // один корень
-
-        const x1 = (-b + Math.sqrt(d)) / (2 * a);
-        const x2 = (-b - Math.sqrt(d)) / (2 * a);
-        return [x1, x2]; // два корня
+    } catch(err) {
+        alert(err.message)
     }
+
 }
 
 function squareRootsTests() {
-
     {
         console.log('тест 1,1,1 -> нет корней');
         const roots = squareRoots(1, 1, 1);
@@ -103,11 +107,8 @@ function ttt() {
     const b = Number(prompt('Введите b'));
     const c = Number(prompt('Введите c'));
     const roots = squareRoots(a, b, c);
-
     if (!roots.length)
         alert('корней нет!');
-    else if (roots[0] === Infinity)
-        alert('Бесконечность решений');
     else if (roots.length == 1)
         alert('один корень: ' + roots[0]);
     else
