@@ -1,0 +1,42 @@
+body {
+    background-color: #f8f1ec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons-container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 30%;
+    margin-top: 5%;
+}
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-family: "Georgia";
+    font-size: 1.0625rem;
+    line-height: 130%;
+    color: #292929;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    height: 52px;
+    transition: 0.4s;
+    background-color: #F1CDB3;
+    cursor: pointer;
+    width: 100%;
+  }
+  .btn:hover {
+    background-color: #FDDCC4;
+    color: #1d1d1d;
+  }
+   
+ul {
+    font-size: 1.5rem;
+    color: #1d1d1d;
+}
