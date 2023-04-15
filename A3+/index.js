@@ -23,21 +23,23 @@ function getString() {
 function palindrom(str) {
     str = str.toLowerCase();
     let newStr = ''
-    for (let i = 0; i<str.length; i++){
-        if(str[i]>='a'&& str[i]<='z'|| str[i]>='а'&& str[i]<='я'|| str[i]==='ё'){
-            if (str[i] === 'ё'){
-                newStr+= 'е';
-            } else if (str[i] === 'ь'||str[i] === 'ъ'){
-                newStr+= '';
-            } else {
-                newStr+= str[i]
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] >= 'a' && str[i] <= 'z' || str[i] >= 'а' && str[i] <= 'я' || str[i] === 'ё') {
+            if (str[i] === 'ё') {
+                newStr += 'е';
+            } else if (str[i] != 'ь' && str[i] != 'ъ') {
+                newStr += str[i]
             }
         }
     }
-    for (let i = 0, j = newStr.length-1; i<newStr.length; i++, j--){
-        if (newStr[i] !== newStr[j]){
-            return false
-        } 
+    let i = 0;
+    let j = newStr.length - 1
+    while (i < j) {
+        if (newStr[i] !== newStr[j]) {
+            return false;
+        }
+        i++;
+        j--;
     }
     return true;
 }
