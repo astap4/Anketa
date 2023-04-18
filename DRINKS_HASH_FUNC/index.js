@@ -8,7 +8,7 @@ function HashStorageFunc() {
         if (key in storage) {
             return storage[key];
         }
-        return false;
+        return undefined;
     }
     this.deleteValue = function (key) {
         if (key in storage) {

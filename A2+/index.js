@@ -5,7 +5,7 @@ alert(`%${removeWhitespaces(yourString)}%`)
 function removeWhitespaces(string) {
     let i = 0;
     let j = string.length - 1;
-    if (i != ' ' && j != ' ') { //Если нет пробела ни в начале, нив  конце - позвращаем исходную строку
+    if (string[i] != ' ' && string[j] != ' ') { //Если нет пробела ни в начале, ни в  конце - возвращаем исходную строку
         return string;
     }
     if (string[0] === ' ') {    //Если нет пробела в начале - пропускаем цикл

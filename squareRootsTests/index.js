@@ -1,5 +1,5 @@
 function squareRoots(a, b, c) {
-    try {
+
         if (a === 0) {             //если а = 0, то уравнение будет линейным
             if (b === 0) {
                 if (c === 0) {
@@ -31,9 +31,6 @@ function squareRoots(a, b, c) {
             const x2 = (-b - Math.sqrt(d)) / (2 * a);
             return [x1, x2]; // два корня
         }
-    } catch(err) {
-        alert(err.message)
-    }
 
 }
 
@@ -106,13 +103,17 @@ function ttt() {
     const a = Number(prompt('Введите a'));
     const b = Number(prompt('Введите b'));
     const c = Number(prompt('Введите c'));
-    const roots = squareRoots(a, b, c);
-    if (!roots.length)
-        alert('корней нет!');
-    else if (roots.length == 1)
-        alert('один корень: ' + roots[0]);
-    else
-        alert('два корня: ' + roots[0] + ' и ' + roots[1]);
+    try {
+        const roots = squareRoots(a, b, c);
+        if (!roots.length)
+            alert('корней нет!');
+        else if (roots.length == 1)
+            alert('один корень: ' + roots[0]);
+        else
+            alert('два корня: ' + roots[0] + ' и ' + roots[1]);
+    } catch(err) {
+        alert(err.message)
+    }
 }
 
 ttt()
