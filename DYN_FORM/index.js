@@ -81,6 +81,7 @@ function createForm(form, arr) {
                 elem.variants.forEach(element => {
                     const newRadio= document.createElement('input');
                     newRadio.type = 'radio';
+                    newRadio.name = 'public';
                     newRadio.value = element.value;
                     const newRadioText= document.createElement('span');
                     newRadioText.textContent = element.text;
