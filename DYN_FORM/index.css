@@ -1,0 +1,54 @@
+body {
+    background: linear-gradient(90deg, #d3ffe8, #aea4e3);
+    padding: 1%;
+}
+
+.form-element {
+    display: flex;
+    flex-wrap: wrap;
+    width: 619px;
+    margin-bottom: 2px;  
+}
+
+label {
+    width: 26%;
+}
+
+.form-element input {
+    width: 70%;
+    cursor: pointer;
+}
+
+.form-element select {
+    width: 35%;
+    cursor: pointer;
+}
+
+.radio-elem {
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+input[type="number"] {
+    width: 15%;
+}
+
+input[type="email"] {
+    width: 34%;
+}
+
+input[type="checkbox"] {
+    width: 3%;
+}
+
+input[type="submit"] {
+    width: 25%;
+}
+
+textarea {
+    padding: 0;
+    width: 600px;
+    height: 50px;
+}
+
