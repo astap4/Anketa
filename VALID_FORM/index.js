@@ -96,6 +96,9 @@ function createForm(form, arr) {
                     newOption.textContent = element.text;
                     comboInput.append(newOption)
                 });
+                comboInput.addEventListener('change', () => {
+                    validateCombo(comboInput)
+                });
                 comboInput.required = true;
                 newElement.append(comboInput)
                 break;
@@ -238,6 +241,18 @@ function validateEmail(inputElem) {
     }
 }
 
+function validateCombo(inputElem) {
+    //нельзя выбрать значение здоровье
+    const inputError = inputElem.nextSibling;
+    if (inputElem.value === '1') {
+        inputError.textContent = 'Нельзя выбрать здоровье';
+        return false;
+    } else {
+        inputError.textContent = '';
+        return true;
+    }
+}
+
 function validateRadio(inputValue) {
     //нельзя выбрать значение бесплатное
     const radioElements = document.querySelector('.radio-elem')
@@ -297,6 +312,7 @@ function validateInfoForm(eo) {
         const dateField = formTag.elements.launchdate;
         const numField = formTag.elements.visitors;
         const emailField = formTag.elements.email;
+        const comboField = formTag.elements.division;
         const radioField = formTag.elements.radioName;
         const radioValue = radioField.value;
         const checkField = formTag.elements.votes;
@@ -308,52 +324,57 @@ function validateInfoForm(eo) {
         validateDate(dateField);
         validateNumInput(numField);
         validateEmail(emailField);
-        validateEmail(emailField);
+        validateCombo(comboField);
         validateRadio(radioValue);
         validateDescription(descrField)
-        validateCheckInput(checkField) 
+        validateCheckInput(checkField)
 
-        if(!validateTextInput(devField)) {
+        if (!validateTextInput(devField)) {
             devField.focus();
             eo.preventDefault();
             return;
         }
-        if(!validateTextInput(siteNameField)) {
+        if (!validateTextInput(siteNameField)) {
             siteNameField.focus();
             eo.preventDefault();
             return;
         }
-        if(!validateURL(siteURLField)) {
+        if (!validateURL(siteURLField)) {
             siteURLField.focus();
             eo.preventDefault();
             return;
         }
-        if(!validateDate(dateField)) {
+        if (!validateDate(dateField)) {
             dateField.focus();
             eo.preventDefault();
             return;
         }
-        if(!validateNumInput(numField)) {
+        if (!validateNumInput(numField)) {
             numField.focus();
             eo.preventDefault();
             return;
         }
-        if(!validateEmail(emailField)) {
+        if (!validateEmail(emailField)) {
             emailField.focus();
             eo.preventDefault();
             return;
         }
-        if(!validateRadio(radioValue)) {
+        if (!validateCombo(comboField)) {
+            comboField.focus();
+            eo.preventDefault();
+            return;
+        }
+        if (!validateRadio(radioValue)) {
             radioField.focus();
             eo.preventDefault();
             return;
         }
-        if(!validateCheckInput(checkField)) {
+        if (!validateCheckInput(checkField)) {
             checkField.focus();
             eo.preventDefault();
             return;
         }
-        if(!validateDescription(descrField)) {
+        if (!validateDescription(descrField)) {
             descrField.focus();
             eo.preventDefault();
             return;
