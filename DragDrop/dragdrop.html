@@ -7,60 +7,63 @@
 </head>
 
 <body style='min-height: 100vh'>
-  <img src='http://fe.it-academy.by/Sites/0000007/sax.jpg' id='firstImg'>
+  <img src='http://fe.it-academy.by/Sites/0000007/sax.jpg'>
   <img src='http://fe.it-academy.by/Sites/0000007/Yin_and_Yang.png' width=100>
   <img src='http://fe.it-academy.by/Sites/0000007/Man-and-woman.png' width=150>
   <img src='http://fe.it-academy.by/Sites/0000007/No_smoking.png' style='padding-left: 50px'>
 
   <script>
-    const images = Array.from(document.getElementsByTagName('img'));
-
+    
+    window.onload =setInitLocation;
     function setInitLocation() {
-      leftX = 0
-      for (let i = 0; i < images.length; i++) {
-        images[i].style.position = 'absolute';
-        images[i].style.left = 50 + leftX  + 'px';
-        images[i].style.bottom = 50 + 'vh';
-        leftX  += images[i].offsetWidth + 10
+      const images = document.getElementsByTagName('img');
+      console.log('location')
+      for (const img of images) {
+        console.log(img.offsetLeft)
+        img.style.left = img.offsetLeft + 'px';
+        img.style.top = img.offsetTop + 'px';
+      }
+      for (const img of images) {
+        img.style.position = 'absolute';
       }
     }
     setInitLocation()
 
-    images.forEach(element => {
-      element.onmousedown = function (event) {
+    // images.forEach(element => {
+    //   element.onmousedown = function (event) {
 
-        let shiftX = event.clientX - element.getBoundingClientRect().left;
-        let shiftY = event.clientY - element.getBoundingClientRect().top;
-        console.log('event.clientX ', event.clientX)
-        console.log('element.getBounding ', element.getBoundingClientRect().left)
+    //     let shiftX = event.clientX - element.getBoundingClientRect().left;
+    //     let shiftY = event.clientY - element.getBoundingClientRect().top;
+    //     console.log('event.clientX ', event.clientX)
+    //     console.log('element.getBounding ', element.getBoundingClientRect().left)
 
-        element.style.zIndex = 10;
-        element.style.cursor = 'pointer';
+    //     element.style.zIndex = 10;
+    //     element.style.cursor = 'pointer';
 
-        moveAt(event.pageX, event.pageY);
+    //     moveAt(event.pageX, event.pageY);
 
-        function moveAt(pageX, pageY) {
-          element.style.left = pageX - shiftX + 'px';
-          element.style.top = pageY - shiftY + 'px';
-        }
+    //     function moveAt(pageX, pageY) {
+    //       element.style.left = pageX - shiftX + 'px';
+    //       element.style.top = pageY - shiftY + 'px';
+    //     }
 
-        function onMouseMove(event) {
-          moveAt(event.pageX, event.pageY);
-        }
+    //     function onMouseMove(event) {
+    //       moveAt(event.pageX, event.pageY);
+    //     }
 
-        document.addEventListener('mousemove', onMouseMove);
+    //     document.addEventListener('mousemove', onMouseMove);
 
-        element.onmouseup = function () {
-          document.removeEventListener('mousemove', onMouseMove);
-          element.onmouseup = null;
-        };
+    //     element.onmouseup = function () {
+    //       document.removeEventListener('mousemove', onMouseMove);
+    //       element.onmouseup = null;
+    //     };
 
-      };
+    //   };
 
-      element.ondragstart = function () {
-        return false;
-      };
-    })
+    //   element.ondragstart = function () {
+    //     return false;
+    //   };
+    // })
 
   </script>
 
