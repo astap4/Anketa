@@ -1,0 +1,63 @@
+body {
+    display: flex;
+    justify-content: center;
+    padding-top: 5%;
+    background-image: url(./1620200941_37-phonoteka_org-p-fon-sine-serii-gradient-42.jpg);
+}
+
+.clock {
+    background-image: url(./1616553800_12-p-svetlo-bezhevii-fon-15.jpg);
+    border: 10px solid rgb(245, 219, 200);
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.hour {
+    background-color: rgb(82, 66, 54);
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-size: 20px;
+}
+
+.time {
+  margin-top: 35%;
+  font-size: 1.5rem;
+}
+
+.secondArrow {
+    position: absolute;
+    background-color: rgb(46, 43, 41);
+    height: 35%;
+    width: 1%;
+    transform-origin: bottom;
+    left:50%;
+    bottom: 50%;
+}
+
+.minuteArrow {
+    position: absolute;
+    background-color: rgb(46, 43, 41);
+    height: 32%;
+    width: 2%;
+    border-radius: 15%;
+    transform-origin: bottom;
+    left:50%;
+    bottom: 50%;
+}
+
+.hourArrow {
+    position: absolute;
+    background-color: rgb(46, 43, 41);
+    height: 25%;
+    width: 3%;
+    border-radius: 25%;
+    transform-origin: bottom;
+    left:50%;
+    bottom: 50%;
+}
