@@ -13,13 +13,11 @@
   <img src='http://fe.it-academy.by/Sites/0000007/No_smoking.png' style='padding-left: 50px'>
 
   <script>
-    
-    window.onload =setInitLocation;
+    const images = document.getElementsByTagName('img');
+    const imagesArray = Array.from(images);
+    window.onload = setInitLocation;
     function setInitLocation() {
-      const images = document.getElementsByTagName('img');
-      console.log('location')
       for (const img of images) {
-        console.log(img.offsetLeft)
         img.style.left = img.offsetLeft + 'px';
         img.style.top = img.offsetTop + 'px';
       }
@@ -29,41 +27,36 @@
     }
     setInitLocation()
 
-    // images.forEach(element => {
-    //   element.onmousedown = function (event) {
+    imagesArray.forEach(element => {
+      element.onmousedown = function (event) {
+        let shiftX = event.clientX - element.getBoundingClientRect().left;
+        let shiftY = event.clientY - element.getBoundingClientRect().top;
+        element.style.zIndex = 10;
+        element.style.cursor = 'pointer';
+        moveAt(event.pageX, event.pageY);
 
-    //     let shiftX = event.clientX - element.getBoundingClientRect().left;
-    //     let shiftY = event.clientY - element.getBoundingClientRect().top;
-    //     console.log('event.clientX ', event.clientX)
-    //     console.log('element.getBounding ', element.getBoundingClientRect().left)
+        function moveAt(pageX, pageY) {
+          element.style.left = pageX - shiftX + 'px';
+          element.style.top = pageY - shiftY + 'px';
+        }
 
-    //     element.style.zIndex = 10;
-    //     element.style.cursor = 'pointer';
+        function onMouseMove(event) {
+          moveAt(event.pageX, event.pageY);
+        }
 
-    //     moveAt(event.pageX, event.pageY);
+        document.addEventListener('mousemove', onMouseMove);
 
-    //     function moveAt(pageX, pageY) {
-    //       element.style.left = pageX - shiftX + 'px';
-    //       element.style.top = pageY - shiftY + 'px';
-    //     }
+        element.onmouseup = function () {
+          document.removeEventListener('mousemove', onMouseMove);
+          element.onmouseup = null;
+        };
 
-    //     function onMouseMove(event) {
-    //       moveAt(event.pageX, event.pageY);
-    //     }
+      };
 
-    //     document.addEventListener('mousemove', onMouseMove);
-
-    //     element.onmouseup = function () {
-    //       document.removeEventListener('mousemove', onMouseMove);
-    //       element.onmouseup = null;
-    //     };
-
-    //   };
-
-    //   element.ondragstart = function () {
-    //     return false;
-    //   };
-    // })
+      element.ondragstart = function () {
+        return false;
+      };
+    })
 
   </script>
 
