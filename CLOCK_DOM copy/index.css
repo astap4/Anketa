@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+    background-image: url(./1620200941_37-phonoteka_org-p-fon-sine-serii-gradient-42.jpg);
+}
+
+#clockCircle {
+    fill:rgb(155, 207, 244);
+}
+
+.hidden {
+ visibility: hidden;
+}
+
+.hourCircle {
+    fill:rgb(211, 99, 178);
+}
+
+line {
+    stroke:rgb(46, 15, 100);
+}
+
+text {
+    fill:white;
+    font-size: 20px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+    <div id='inputField'>
+        Построить часы:
+        <input id='diameter' type='text' style='width: 70px'><br />
+        <input id='btn' type='button' value='Построить часы' onclick='build()'>
+    </div>
+    <svg id="clock" class='hidden'xmlns='http://www.w3.org/2000/svg'>
+        <circle id="clockCircle"/>
+    </svg>
+    <script src="index.js"></script>
+</body>
+</html>
