@@ -15,6 +15,7 @@
   <script>
     const images = document.getElementsByTagName('img');
     const imagesArray = Array.from(images);
+    let maxZIndex = 0;
     window.onload = setInitLocation;
     function setInitLocation() {
       for (const img of images) {
@@ -23,6 +24,7 @@
       }
       for (const img of images) {
         img.style.position = 'absolute';
+        img.style.zIndex = 0;
       }
     }
 
@@ -30,7 +32,7 @@
       element.onmousedown = function (event) {
         let shiftX = event.clientX - element.getBoundingClientRect().left;
         let shiftY = event.clientY - element.getBoundingClientRect().top;
-        element.style.zIndex = 10;
+        element.style.zIndex = ++maxZIndex;
         element.style.cursor = 'pointer';
         moveAt(event.pageX, event.pageY);
 
