@@ -24,8 +24,10 @@ function HashStorageFunc() {
 // класс HashStorageClass описать в ES6-стиле (ключевым словом class);
 class HashStorageClass {
     #storage = {};
+    storage = {};
     constructor() {
         this.#storage = {};
+        this.storage = {};
     }
     addValue(key, value) {
         this.#storage[key] = value; 
